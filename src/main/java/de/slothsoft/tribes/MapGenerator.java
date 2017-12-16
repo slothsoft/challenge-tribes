@@ -1,6 +1,7 @@
 package de.slothsoft.tribes;
 
 import java.awt.Point;
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -14,25 +15,27 @@ public class MapGenerator {
 	private final Random rnd = new Random();
 	private int width = 40;
 	private int height = 30;
+	private List<Tribe> possibleTribes;
+	private int tribeCount = 5;
 
 	public Map generate() {
 		final Map map = new Map(this.width, this.height);
 
-		int index = 0;
-		for (final Tribe tribe : Tribes.fetchAllImplementations()) {
-			map.tiles[7][index++] = new Tile(tribe);
-			map.tiles[11][index++] = new Tile(tribe);
-			map.tiles[19][index++] = new Tile(tribe);
+		for (final Tribe tribe : this.possibleTribes == null ? Tribes.fetchAllImplementations() : this.possibleTribes) {
+			for (int i = 0; i < this.tribeCount; i++) {
+				final Point startPoint = generateStartPoint(map.tiles);
+				map.tiles[startPoint.x][startPoint.y] = new Tile(tribe);
+			}
 		}
 		return map;
 	}
 
-	private Point generateStartPoint(boolean[][] tiles) {
+	private Point generateStartPoint(Tile[][] tiles) {
 		final Point point = new Point();
 		do {
 			point.x = this.rnd.nextInt(this.width);
 			point.y = this.rnd.nextInt(this.height);
-		} while (tiles[point.x][point.y]);
+		} while (tiles[point.x][point.y] != null);
 		return point;
 	}
 
@@ -60,6 +63,32 @@ public class MapGenerator {
 
 	public void setWidth(int width) {
 		this.width = width;
+	}
+
+	public List<Tribe> getPossibleTribes() {
+		return this.possibleTribes;
+	}
+
+	public MapGenerator possibleTribes(List<Tribe> newPossibleTribes) {
+		setPossibleTribes(newPossibleTribes);
+		return this;
+	}
+
+	public void setPossibleTribes(List<Tribe> possibleTribes) {
+		this.possibleTribes = possibleTribes;
+	}
+
+	public int getTribeCount() {
+		return this.tribeCount;
+	}
+
+	public MapGenerator tribeCount(int newTribeCount) {
+		setTribeCount(newTribeCount);
+		return this;
+	}
+
+	public void setTribeCount(int tribeCount) {
+		this.tribeCount = tribeCount;
 	}
 
 }

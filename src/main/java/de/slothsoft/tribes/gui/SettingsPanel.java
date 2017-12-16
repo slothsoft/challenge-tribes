@@ -27,6 +27,7 @@ public class SettingsPanel extends JPanel {
 	private JSpinner sleepTime;
 	private JSpinner mapWidth;
 	private JSpinner mapHeight;
+	private JSpinner tribeCount;
 
 	private Game lastGame;
 
@@ -67,7 +68,6 @@ public class SettingsPanel extends JPanel {
 
 		this.mapWidth = new JSpinner();
 		this.mapWidth.setModel(new SpinnerNumberModel(generator.getWidth(), 10, 2000, 1));
-		this.mapWidth.addChangeListener(e -> this.lastGame.setSleepTime((int) this.sleepTime.getValue()));
 
 		add(new JLabel("Map width:"), GridBagData.forLabel(0, y));
 		add(this.mapWidth, GridBagData.forControl(1, y));
@@ -75,17 +75,25 @@ public class SettingsPanel extends JPanel {
 
 		this.mapHeight = new JSpinner();
 		this.mapHeight.setModel(new SpinnerNumberModel(generator.getHeight(), 10, 2000, 1));
-		this.mapHeight.addChangeListener(e -> this.lastGame.setSleepTime((int) this.sleepTime.getValue()));
 
 		add(new JLabel("Map height:"), GridBagData.forLabel(0, y));
 		add(this.mapHeight, GridBagData.forControl(1, y));
+		y++;
+
+		this.tribeCount = new JSpinner();
+		this.tribeCount.setModel(new SpinnerNumberModel(generator.getTribeCount(), 1, 1000, 1));
+
+		add(new JLabel("Tribe count:"), GridBagData.forLabel(0, y));
+		add(this.tribeCount, GridBagData.forControl(1, y));
 		y++;
 	}
 
 	public Game createGame() {
 		final MapGenerator generator = new MapGenerator();
+		generator.setPossibleTribes(this.tribeModel.getAllSelectedTribes());
 		generator.setWidth((int) this.mapWidth.getValue());
 		generator.setHeight((int) this.mapHeight.getValue());
+		generator.setTribeCount((int) this.tribeCount.getValue());
 
 		final Map map = generator.generate();
 		this.lastGame = new Game(map);

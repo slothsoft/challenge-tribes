@@ -1,6 +1,14 @@
-#  TribesChallenge
+#  Tribes Challenge
 
-Todo:
-- rename "tribes-challenge" to name of the application 
-- rename "TribesChallenge" to name of the application with upper case
-- rename "Tribe" to name of base class (optional "tribe" too)
+## How to Start Application
+
+1. clone this repository
+2. import in IDE of your choice
+3. run `TribesChallenge`
+
+## Starting Points
+
+- **Tribe Growths** -> `Tile.executeRound()`, constants `Tribe`
+- **Movement** -> `Map.executeRound()`
+- **Splitting up** -> `Map.executeRound()`
+- **Attacks** -> `Tile.getAttackedBy(Tile)`

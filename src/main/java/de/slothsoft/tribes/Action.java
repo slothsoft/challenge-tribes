@@ -11,7 +11,9 @@ public enum Action {
 
 	SPLIT_UP(0, 0),
 
-	SETTLE(0, 0),;
+	SETTLE(0, 0),
+
+	;
 
 	private int nextRoundXIncrement;
 	private int nextRoundYIncrement;

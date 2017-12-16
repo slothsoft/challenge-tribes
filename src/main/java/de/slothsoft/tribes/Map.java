@@ -38,25 +38,29 @@ public class Map {
 			for (int y = 0; y < this.tiles[x].length; y++) {
 				final Tile tile = this.tiles[x][y];
 				if (tile != null) {
-					final Action action = tile.executeRound();
-					if (action == null) {
-						continue;
-					}
-					switch (action) {
-						case SPLIT_UP :
-							slitTribe(nextRoundMap, tile, x, y);
-							break;
-						default :
-							moveTile(nextRoundMap, tile, action, x, y);
-					}
+					executeRoundForTile(nextRoundMap, tile, x, y);
 				}
 			}
 		}
 
+		// copy next round tiles to used array
 		for (int x = 0; x < this.tiles.length; x++) {
 			for (int y = 0; y < this.tiles[x].length; y++) {
 				this.tiles[x][y] = nextRoundMap[x][y];
 			}
+		}
+	}
+
+	private void executeRoundForTile(Tile[][] nextRoundMap, Tile tile, int x, int y) {
+		final Action action = tile.executeRound();
+		if (action == null) return;
+
+		switch (action) {
+			case SPLIT_UP :
+				slitTribe(nextRoundMap, tile, x, y);
+				break;
+			default :
+				moveTile(nextRoundMap, tile, action, x, y);
 		}
 	}
 
