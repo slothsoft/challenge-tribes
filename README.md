@@ -8,7 +8,7 @@
 
 In this challenge you manage a tribe so it will grow and be able to survive the other tribes of this world.
 
-![Image of Yaktocat](https://raw.githubusercontent.com/slothsoft/challenge-tribes/master/readme/screenshot.png)
+![Screenshot](https://raw.githubusercontent.com/slothsoft/challenge-tribes/master/readme/screenshot.png)
 
 
 
