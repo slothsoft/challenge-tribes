@@ -6,7 +6,9 @@
 - **Wiki:** none
 
 
-Sometimes I like to create a little programming challenge. Some of these share code, even though not really, so it only seemed right to have a Maven archetype for these things.
+In this challenge you manage a tribe so it will grow and be able to survive the other tribes of this world.
+
+![Image of Yaktocat](https://raw.githubusercontent.com/slothsoft/challenge-tribes/master/readme/screenshot.png)
 
 
 
