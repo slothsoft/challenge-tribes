@@ -11,6 +11,7 @@ import java.util.Set;
 /**
  * A basic map with tiles.
  *
+ * @author Stef Schulz
  * @since 1.0.0
  */
 

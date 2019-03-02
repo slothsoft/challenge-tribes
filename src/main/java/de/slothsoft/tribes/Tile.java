@@ -5,6 +5,7 @@ import java.util.Objects;
 /**
  * A tile of the {@link Map}.
  *
+ * @author Stef Schulz
  * @since 1.0.0
  */
 

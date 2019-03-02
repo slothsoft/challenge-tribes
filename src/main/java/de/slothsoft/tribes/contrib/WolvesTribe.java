@@ -5,6 +5,13 @@ import java.util.Random;
 
 import de.slothsoft.tribes.Action;
 
+/**
+ * A demo tribe. Wolves are random.
+ *
+ * @author Stef Schulz
+ * @since 1.0.0
+ */
+
 public class WolvesTribe extends AbstractTribe {
 
 	private final Random rnd = new Random();

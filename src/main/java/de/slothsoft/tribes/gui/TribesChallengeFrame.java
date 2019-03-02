@@ -7,8 +7,15 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import de.slothsoft.tribes.Tribe;
 import de.slothsoft.tribes.Game;
+import de.slothsoft.tribes.Tribe;
+
+/**
+ * The main frame.
+ *
+ * @author Stef Schulz
+ * @since 1.0.0
+ */
 
 public class TribesChallengeFrame extends JFrame {
 
@@ -17,7 +24,7 @@ public class TribesChallengeFrame extends JFrame {
 	private final SettingsPanel settingsPanel = new SettingsPanel();
 	private final HighScorePanel highScorePanel = new HighScorePanel();
 	private final MapPanel mapPanel = new MapPanel();
-	private final ScorePanel scorePanel = new ScorePanel();
+	private final KeyPanel scorePanel = new KeyPanel();
 
 	private Game game;
 
@@ -28,7 +35,7 @@ public class TribesChallengeFrame extends JFrame {
 	private void createMainPanel() {
 		setLayout(new BorderLayout());
 
-		JPanel panel = new JPanel();
+		final JPanel panel = new JPanel();
 		panel.setLayout(new BorderLayout());
 		panel.add(this.mapPanel, BorderLayout.CENTER);
 		panel.add(this.scorePanel, BorderLayout.SOUTH);
@@ -37,7 +44,7 @@ public class TribesChallengeFrame extends JFrame {
 		add(this.settingsPanel, BorderLayout.WEST);
 		add(this.highScorePanel, BorderLayout.EAST);
 
-		JButton restartButton = new JButton("Restart");
+		final JButton restartButton = new JButton("Restart");
 		restartButton.addActionListener(e -> restart());
 		this.settingsPanel.add(restartButton, GridBagData.forControl(1, 10));
 

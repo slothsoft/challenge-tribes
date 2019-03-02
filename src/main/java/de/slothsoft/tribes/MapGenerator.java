@@ -7,6 +7,7 @@ import java.util.Random;
 /**
  * A generator for {@link Map}.
  *
+ * @author Stef Schulz
  * @since 1.0.0
  */
 

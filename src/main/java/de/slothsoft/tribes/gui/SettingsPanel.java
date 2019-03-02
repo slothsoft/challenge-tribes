@@ -18,6 +18,13 @@ import de.slothsoft.tribes.Game;
 import de.slothsoft.tribes.Map;
 import de.slothsoft.tribes.MapGenerator;
 
+/**
+ * A panel that shows the game's settings.
+ *
+ * @author Stef Schulz
+ * @since 1.0.0
+ */
+
 public class SettingsPanel extends JPanel {
 
 	private static final long serialVersionUID = -2165255329208901685L;

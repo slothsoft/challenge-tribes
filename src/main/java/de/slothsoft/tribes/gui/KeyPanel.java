@@ -9,10 +9,17 @@ import javax.swing.ImageIcon;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
 
-import de.slothsoft.tribes.Tribe;
 import de.slothsoft.tribes.Map;
+import de.slothsoft.tribes.Tribe;
 
-public class ScorePanel extends JComponent {
+/**
+ * A panel that shows the colors and names of the {@link Tribe}s.
+ *
+ * @author Stef Schulz
+ * @since 1.0.0
+ */
+
+public class KeyPanel extends JComponent {
 
 	private static final long serialVersionUID = -6297202903243792595L;
 	private Map map;
@@ -20,7 +27,7 @@ public class ScorePanel extends JComponent {
 	private void createControls() {
 		setLayout(new FlowLayout());
 
-		for (Tribe tribe : this.map.getExistingTribes()) {
+		for (final Tribe tribe : this.map.getExistingTribes()) {
 			add(new TribeControl(tribe));
 		}
 	}
@@ -47,8 +54,8 @@ public class ScorePanel extends JComponent {
 
 		private Icon createIcon(Tribe tribe) {
 			final int size = 32;
-			BufferedImage image = new BufferedImage(size, size, BufferedImage.TYPE_INT_ARGB);
-			Graphics2D g = image.createGraphics();
+			final BufferedImage image = new BufferedImage(size, size, BufferedImage.TYPE_INT_ARGB);
+			final Graphics2D g = image.createGraphics();
 			g.scale(size / MapRenderer.WIDTH_IN_PIXELS, size / MapRenderer.HEIGHT_IN_PIXELS);
 			new MapRenderer().paintTribe(g, tribe);
 			g.dispose();

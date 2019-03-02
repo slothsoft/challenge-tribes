@@ -5,9 +5,15 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 
 import javax.swing.JComponent;
-import javax.xml.ws.WebEndpoint;
 
 import de.slothsoft.tribes.Map;
+
+/**
+ * A panel that displays the entire {@link Map}.
+ *
+ * @author Stef Schulz
+ * @since 1.0.0
+ */
 
 public class MapPanel extends JComponent {
 
@@ -15,7 +21,7 @@ public class MapPanel extends JComponent {
 	private static final long REPAINT_IN_MS = 1000 / 24; // 24 frames per second
 
 	private Map map;
-	private MapRenderer renderer = new MapRenderer();
+	private final MapRenderer renderer = new MapRenderer();
 
 	private int width;
 	private int height;
@@ -47,7 +53,8 @@ public class MapPanel extends JComponent {
 	public void setMap(Map map) {
 		this.map = map;
 		this.width = map == null ? 0 : map.getWidth() * MapRenderer.WIDTH_IN_PIXELS + 4 * MapRenderer.WIDTH_IN_PIXELS;
-		this.height = map == null ? 0
+		this.height = map == null
+				? 0
 				: map.getHeight() * MapRenderer.HEIGHT_IN_PIXELS + 4 * MapRenderer.HEIGHT_IN_PIXELS;
 		setPreferredSize(new Dimension(this.width, this.height));
 		repaint();

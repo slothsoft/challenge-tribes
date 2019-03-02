@@ -9,6 +9,13 @@ import javax.swing.table.AbstractTableModel;
 import de.slothsoft.tribes.Tribe;
 import de.slothsoft.tribes.Tribes;
 
+/**
+ * A model displaying all possible {@link Tribe}s.
+ *
+ * @author Stef Schulz
+ * @since 1.0.0
+ */
+
 public class TribeModel extends AbstractTableModel {
 
 	private static final long serialVersionUID = 6708900198232721648L;

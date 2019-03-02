@@ -9,6 +9,13 @@ import de.slothsoft.tribes.Map;
 import de.slothsoft.tribes.Tile;
 import de.slothsoft.tribes.Tribe;
 
+/**
+ * A renderer that displays the entire {@link Map}.
+ *
+ * @author Stef Schulz
+ * @since 1.0.0
+ */
+
 public class MapRenderer {
 
 	static final int BORDER_WIDTH = 2;

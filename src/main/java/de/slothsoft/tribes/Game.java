@@ -7,6 +7,7 @@ import java.util.function.Consumer;
 /**
  * A start class for each game.
  *
+ * @author Stef Schulz
  * @since 1.0.0
  */
 
