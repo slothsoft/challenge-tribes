@@ -26,8 +26,7 @@ public class TribesChallenge {
 
 	private static void createAndShowGui() {
 		final TribesChallengeFrame mainFrame = new TribesChallengeFrame();
-		mainFrame.start();
-		mainFrame.pack();
+		mainFrame.setVisible(true);
 	}
 
 }

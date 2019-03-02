@@ -54,20 +54,27 @@ public class TribesChallengeFrame extends JFrame {
 		setLocationRelativeTo(null);
 	}
 
+	@Override
+	public void setVisible(boolean b) {
+		if (!isVisible() && b) {
+			createMainPanel();
+			start();
+			doLayout();
+		}
+		super.setVisible(b);
+	}
+
 	public void restart() {
 		stop();
 		start();
 	}
 
 	public void start() {
-		createMainPanel();
-		setVisible(true);
 		this.game = this.settingsPanel.createGame();
 		this.mapPanel.setMap(this.game.getMap());
 		this.scorePanel.setMap(this.game.getMap());
 		this.game.onFinish(this::gameFinished);
 		this.game.start();
-		doLayout();
 	}
 
 	private void gameFinished(Tribe winner) {
