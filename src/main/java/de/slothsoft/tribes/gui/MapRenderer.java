@@ -1,7 +1,6 @@
 package de.slothsoft.tribes.gui;
 
 import java.awt.AlphaComposite;
-import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
@@ -30,19 +29,16 @@ public class MapRenderer {
 	 */
 
 	public void paintMap(Graphics2D graphics, Map map) {
-		graphics.setStroke(new BasicStroke(BORDER_WIDTH));
+		graphics.setColor(Color.DARK_GRAY);
+		graphics.fillRect(0, 0, map.getWidth() + 2, map.getHeight() + 2);
 
 		graphics.setColor(Color.WHITE);
-		graphics.fillRect(0, 0, map.getWidth() * WIDTH_IN_PIXELS + 2 * BORDER_WIDTH - 1,
-				map.getHeight() * HEIGHT_IN_PIXELS + 2 * BORDER_WIDTH - 1);
+		graphics.fillRect(WIDTH_IN_PIXELS, HEIGHT_IN_PIXELS, map.getWidth() * WIDTH_IN_PIXELS,
+				map.getHeight() * HEIGHT_IN_PIXELS);
 
-		graphics.setColor(Color.DARK_GRAY);
-		graphics.drawRect(0, 0, map.getWidth() * WIDTH_IN_PIXELS + 2 * BORDER_WIDTH - 1,
-				map.getHeight() * HEIGHT_IN_PIXELS + 2 * BORDER_WIDTH - 1);
-
-		graphics.translate(BORDER_WIDTH, BORDER_WIDTH);
+		graphics.translate(1, 1);
 		paintTiles(graphics, map.getTiles());
-		graphics.translate(-BORDER_WIDTH, -BORDER_WIDTH);
+		graphics.translate(-1, -1);
 	}
 
 	/**
