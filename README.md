@@ -1,5 +1,7 @@
 #  Tribes Challenge
 
+[![Build Status](https://travis-ci.org/slothsoft/challenge-tribes.svg?branch=master)](https://travis-ci.org/slothsoft/challenge-tribes)
+
 - **Author:** [Stef Schulz](mailto:s.schulz@slothsoft.de)
 - **Repository:** <https://github.com/slothsoft/challenge-tribes>
 - **Open Issues:** <https://github.com/slothsoft/challenge-tribes/issues>
